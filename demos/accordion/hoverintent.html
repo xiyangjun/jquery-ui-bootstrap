@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Accordion - Open on hoverintent</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/accordion.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion({
+			event: "click hoverintent"
+		});
+	});
+
+	/*
+	 * hoverIntent | Copyright 2011 Brian Cherne
+	 * http://cherne.net/brian/resources/jquery.hoverIntent.html
+	 * modified by the jQuery UI team
+	 */
+	$.event.special.hoverintent = {
+		setup: function() {
+			$( this ).bind( "mouseover", jQuery.event.special.hoverintent.handler );
+		},
+		teardown: function() {
+			$( this ).unbind( "mouseover", jQuery.event.special.hoverintent.handler );
+		},
+		handler: function( event ) {
+			var currentX, currentY, timeout,
+				args = arguments,
+				target = $( event.target ),
+				previousX = event.pageX,
+				previousY = event.pageY;
+
+			function track( event ) {
+				currentX = event.pageX;
+				currentY = event.pageY;
+			};
+
+			function clear() {
+				target
+					.unbind( "mousemove", track )
+					.unbind( "mouseout", clear );
+				clearTimeout( timeout );
+			}
+
+			function handler() {
+				var prop,
+					orig = event;
+
+				if ( ( Math.abs( previousX - currentX ) +
+						Math.abs( previousY - currentY ) ) < 7 ) {
+					clear();
+
+					event = $.Event( "hoverintent" );
+					for ( prop in orig ) {
+						if ( !( prop in event ) ) {
+							event[ prop ] = orig[ prop ];
+						}
+					}
+					// Prevent accessing the original event since the new event
+					// is fired asynchronously and the old event is no longer
+					// usable (#6028)
+					delete event.originalEvent;
+
+					target.trigger( event );
+				} else {
+					previousX = currentX;
+					previousY = currentY;
+					timeout = setTimeout( handler, 100 );
+				}
+			}
+
+			timeout = setTimeout( handler, 100 );
+			target.bind({
+				mousemove: track,
+				mouseout: clear
+			});
+		}
+	};
+	</script>
+</head>
+<body>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading" >
+			<h4 class="panel-title">
+				Collapsible Group Item #1
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" >
+			<h4 class="panel-title">
+				Collapsible Group Item #2
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingThree">
+			<h4 class="panel-title">
+				Collapsible Group Item #3
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+</div>
+
+<div class="demo-description">
+<p>
+Click headers to expand/collapse content that is broken into logical sections, much like tabs.
+Optionally, toggle sections open/closed on mouseover.
+</p>
+<p>
+The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
+usable without JavaScript.
+</p>
+</div>
+</body>
+</html>

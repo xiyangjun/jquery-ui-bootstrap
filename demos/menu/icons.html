@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Menu - Icons</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/position.js"></script>
+	<script src="../../ui/menu.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<script>
+	$(function() {
+		$( "#menu" ).menu();
+	});
+	</script>
+	<style>
+	.ui-menu { width: 150px; }
+	</style>
+</head>
+<body>
+
+<ul id="menu">
+	<li>
+		<a href="#"><span class="glyphicon glyphicon-tint"></span>Save</a>
+	</li>
+	<li>
+		<a href="#"><span class="glyphicon glyphicon-tint"></span>Zoom In</a>
+	</li>
+	<li>
+		<a href="#"><span class="glyphicon glyphicon-tint"></span>Zoom Out</a>
+	</li>
+	<li class="ui-state-disabled">
+		<a href="#"><span class="ui-icon ui-icon-print"></span>Print...</a>
+	</li>
+	<li>
+		<a href="#">Playback</a>
+		<ul>
+			<li>
+				<a href="#"><span class="ui-icon ui-icon-seek-start"></span>Prev</a>
+			</li>
+			<li>
+				<a href="#"><span class="ui-icon ui-icon-stop"></span>Stop</a>
+			</li>
+			<li>
+				<a href="#"><span class="ui-icon ui-icon-play"></span>Play</a>
+			</li>
+			<li>
+				<a href="#"><span class="ui-icon ui-icon-seek-end"></span>Next</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Learn more about this menu</a>
+	</li>
+</ul>
+
+<div class="demo-description">
+<p>A menu with the default configuration, showing how to use a menu with icons.</p>
+</div>
+</body>
+</html>

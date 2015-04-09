@@ -1,0 +1,85 @@
+/*!
+ * jQuery UI Spinner @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/spinner/#theming
+ */
+.ui-spinner {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	vertical-align: middle;
+}
+.ui-spinner-input {
+  outline: none;
+	vertical-align: middle;
+	margin-left: .4em;
+	margin-right: 22px;
+  border: 1px solid @input-border;
+  height: @input-height-base - 2; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: @padding-base-vertical @padding-base-horizontal;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none;
+  border-radius: @input-border-radius;
+}
+.ui-spinner-button {
+	width: 25px;
+	height: 50%;
+	font-size: 12px;
+  	line-height: 14px;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	cursor: default;
+	display: block;
+	overflow: hidden;
+	right: 0;
+
+
+  	color: #fff;
+  	background-repeat: repeat-x;
+	box-shadow: none;
+	text-shadow: 0 1px rgba(0,0,0,.1);
+	background-image: linear-gradient(to bottom,#4d90fe 0,#4787ed 100%);
+    .caret {
+	  margin-left: 0;
+	}
+}
+/* more specificity required here to override default borders */
+.ui-spinner a.ui-spinner-button {
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+}
+/* vertically center icon */
+.ui-spinner .ui-icon {
+	position: absolute;
+	margin-top: -8px;
+	top: 50%;
+	left: 0;
+}
+.ui-spinner-up {
+	top: 0;
+  .caret {
+	border-bottom: 4px dashed;
+	border-top: transparent;
+  }
+}
+.ui-spinner-down {
+	bottom: 0;
+}
+
+/* TR overrides */
+.ui-spinner .ui-icon-triangle-1-s {
+	/* need to fix icons sprite */
+	background-position: -65px -16px;
+}

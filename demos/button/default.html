@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Button - Default functionality</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/button.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<script>
+	$(function() {
+		$( "input[type=radio], a, button" )
+			.button()
+			.click(function( event ) {
+				event.preventDefault();
+			});
+	});
+	</script>
+</head>
+<body>
+
+<button type="button" class="btn btn-primary">A button element</button>
+<!--<div style="border: 1px solid red;">-->
+	<!--<label for="radio">fsdfsd</label>-->
+<!--</div>-->
+
+
+
+<a href="#" class="btn btn-primary">An anchor</a>
+
+<div class="demo-description">
+<p>Examples of the markup that can be used for buttons: A button element, an input of type submit and an anchor.</p>
+</div>
+</body>
+</html>

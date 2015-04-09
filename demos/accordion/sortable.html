@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Accordion - Sortable</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/mouse.js"></script>
+	<script src="../../ui/sortable.js"></script>
+	<script src="../../ui/accordion.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<style>
+	/* IE has layout issues when sorting (see #5413) */
+	.group { zoom: 1 }
+	</style>
+	<script>
+	$(function() {
+		$( "#accordion" )
+			.accordion()
+			.sortable({
+				axis: "y",
+				handle: ".panel-heading",
+				stop: function( event, ui ) {
+					// IE doesn't register the blur when sorting
+					// so trigger focusout handlers to remove .ui-state-focus
+					ui.item.children( ".panel-heading" ).triggerHandler( "focusout" );
+
+					// Refresh accordion to handle new order
+					$( this ).accordion( "refresh" );
+				}
+			});
+	});
+	</script>
+</head>
+<body>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading" >
+			<h4 class="panel-title">
+				Collapsible Group Item #1
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" >
+			<h4 class="panel-title">
+				Collapsible Group Item #2
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingThree">
+			<h4 class="panel-title">
+				Collapsible Group Item #3
+			</h4>
+		</div>
+		<div class="panel-body">
+			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		</div>
+	</div>
+</div>
+
+<div class="demo-description">
+<p>Drag the header to re-order panels.</p>
+</div>
+</body>
+</html>

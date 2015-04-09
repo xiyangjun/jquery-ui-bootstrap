@@ -1,0 +1,128 @@
+/*!
+ * jQuery UI Menu @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/menu/#theming
+ */
+.ui-menu {
+  z-index: @zindex-dropdown;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0; // override default ul
+  list-style: none;
+  font-size: @font-size-base;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  background-color: @dropdown-bg;
+  border: 1px solid @dropdown-fallback-border; // IE8 fallback
+  border: 1px solid @dropdown-border;
+  border-radius: @border-radius-base;
+  .box-shadow(0 6px 12px rgba(0,0,0,.175));
+  background-clip: padding-box;
+  outline: none;
+  .ui-menu {
+	position: absolute;
+  }
+
+  .ui-menu-item-wrapper {
+	position: relative;
+//	padding: 3px 1em 3px .4em;
+  }
+  .divider {
+  	.nav-divider(@dropdown-divider-bg);
+  }
+  .ui-state-focus,.ui-state-active {
+//	margin: -1px;
+//	color: @dropdown-link-active-color;
+//	text-decoration: none;
+//	outline: 0;
+	background-color: @dropdown-link-active-bg;
+  }
+  .ui-icon,.glyphicon {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: .2em;
+	margin: auto 0;
+  }
+  .glyphicon {
+	top: 6px;
+	left: .3571428em
+  }
+  .ui-menu-icon {
+	left: auto;
+	right: 0;
+  }
+}
+.ui-menu-icons {
+  position: relative;
+  .ui-menu-item-wrapper {
+	padding-left: 2em;
+  }
+}
+
+.ui-menu .ui-menu-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  color: @dropdown-header-color;
+  white-space: nowrap;
+}
+
+.ui-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: @line-height-base;
+  color: @dropdown-link-color;
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+}
+
+.ui-menu > li > a {
+  &:hover,
+  &:focus {
+	text-decoration: none;
+	color: @dropdown-link-hover-color;
+	background-color: @dropdown-link-hover-bg;
+  }
+}
+
+// Active state
+.ui-menu > li > a.ui-state-active {
+  &,
+  &:hover,
+  &:focus {
+	color: @dropdown-link-active-color;
+	text-decoration: none;
+	outline: 0;
+	background-color: @dropdown-link-active-bg;
+  }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.ui-menu > .ui-state-disabled > a {
+  &,
+  &:hover,
+  &:focus {
+	color: @dropdown-link-disabled-color;
+  }
+
+  // Nuke hover/focus effects
+  &:hover,
+  &:focus {
+	text-decoration: none;
+	background-color: transparent;
+	background-image: none; // Remove CSS gradient
+	.reset-filter();
+	cursor: @cursor-disabled;
+  }
+}

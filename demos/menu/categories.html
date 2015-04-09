@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Menu - Categories</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/position.js"></script>
+	<script src="../../ui/menu.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<script>
+	$(function() {
+		$( "#menu" ).menu({
+			items: "> :not(.ui-menu-header)"
+		});
+	});
+	</script>
+	<style>
+	.ui-menu { width: 200px; }
+	.ui-menu-header { padding: 0.2em; }
+	</style>
+</head>
+<body>
+
+
+<ul id="menu">
+	<li class="ui-menu-header">Category 1</li>
+	<li><a href="#">Option 1</a></li>
+	<li><a href="#">Option 2</a></li>
+	<li><a href="#">Option 3</a></li>
+	<li class="ui-menu-header">Category 2</li>
+	<li><a href="#">Option 4</a></li>
+	<li><a href="#">Option 5</a></li>
+	<li role="presentation" class="divider"></li>
+	<li><a href="#">Option 6</a></li>
+</ul>
+
+<div class="demo-description">
+<p>By using the <code>items</code> option, you can configure which elements are converted into selectable menu items. Here this technique is used to create category headers.</p>
+</div>
+</body>
+</html>

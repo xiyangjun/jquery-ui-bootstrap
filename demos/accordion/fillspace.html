@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Accordion - Fill space</title>
+	<link rel="stylesheet" href="../../less/bootstrap-jq-ui/all.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/mouse.js"></script>
+	<script src="../../ui/resizable.js"></script>
+	<script src="../../ui/accordion.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<style>
+	#accordion-resizer {
+		padding: 10px;
+		width: 350px;
+		height: 260px;
+	}
+	</style>
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion({
+			heightStyle: "fill"
+		});
+	});
+	$(function() {
+		$( "#accordion-resizer" ).resizable({
+			minHeight: 140,
+			minWidth: 200,
+			resize: function() {
+				$( "#accordion" ).accordion( "refresh" );
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+
+<h3 class="docs">Resize the outer container:</h3>
+
+<div id="accordion-resizer" class="ui-widget-content">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="panel-heading" >
+				<h4 class="panel-title">
+					Collapsible Group Item #1
+				</h4>
+			</div>
+			<div class="panel-body">
+				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" >
+				<h4 class="panel-title">
+					Collapsible Group Item #2
+				</h4>
+			</div>
+			<div class="panel-body">
+				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingThree">
+				<h4 class="panel-title">
+					Collapsible Group Item #3
+				</h4>
+			</div>
+			<div class="panel-body">
+				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-description">
+<p>Because the accordion is comprised of block-level elements, by default its width fills the available horizontal space. To fill the vertical space allocated by its container, set the <code>heightStyle</code> option to <code>"fill"</code>, and the script will automatically set the dimensions of the accordion to the height of its parent container.</p>
+</div>
+</body>
+</html>
